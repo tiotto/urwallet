@@ -7,10 +7,13 @@ import { formatCurrency } from '../../utils/currencyFormatter'
 const Bitcoin = () => {
   const [bitcoin, setBitcoin] = useState('')
 
-  useEffect(async () => {
-    const { data } = await getBitcoin()
+  useEffect(() => {
+    async function fetchData () {
+      const { data } = await getBitcoin()
 
-    setBitcoin(data.ticker.last)
+      setBitcoin(data.ticker.last)
+    }
+    fetchData()
   }, [])
 
   return (
