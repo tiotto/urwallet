@@ -3,9 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.2",
     "prop-types": "^15.7.2",
     "react": "^16.13.0",
@@ -13,6 +10,12 @@
     "react-scripts": "3.4.0",
     "styled-components": "^5.0.1",
     "styled-reset": "^4.1.1"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "babel-preset-react-app": "^9.1.2"
   },
   "scripts": {
     "start": "react-scripts start",

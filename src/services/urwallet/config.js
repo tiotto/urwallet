@@ -1,1 +1,1 @@
-export const endpoint = 'https://urwallet-api.herokuapp.com/'
+export const endpoint = 'localhost:3000/accounts/1/transactions'

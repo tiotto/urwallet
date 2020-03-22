@@ -5,6 +5,7 @@ import Menu from '../Menu'
 import { ReactComponent as Logo } from '../../assets/logo.svg'
 import { device } from '../../theme/breakpoints'
 import User from '../User'
+import TotalBalance from '../../components/TotalBalance'
 
 const Header = () =>
   <S.Header>
@@ -13,6 +14,7 @@ const Header = () =>
         <Logo className='logo' />
         <Menu />
       </S.LogoMenu>
+      <TotalBalance />
       <User />
     </S.Wrapper>
   </S.Header>

@@ -19,7 +19,7 @@ const Tokens = css`
     --box-shadow-flat: none;
     --box-shadow-hover: 0 4px 8px rgba(0, 0, 0, .2);
     --box-shadow-modal: 0 14px 20px rgba(0, 0, 0, .1);
-    --box-shadow-raised: 0 2px 4px rgba(0, 0, 0, .15);
+    --box-shadow-raised: 0 1px 4px rgba(0,0,0,.04);
     --box-shadow-spotlight: 0 6px 12px 0 rgba(0, 0, 0, .1);
     --elevation-flat: none;
     --elevation-hover: 1100;

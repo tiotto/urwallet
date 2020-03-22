@@ -9,12 +9,12 @@ const Brita = () => {
   const [brita, setBrita] = useState('')
 
   useEffect(() => {
-    async function fetchData () {
+    async function fetchBrita () {
       const { data } = await getBrita('03-17-2020')
 
       setBrita(data.value[0].cotacaoCompra)
     }
-    fetchData()
+    fetchBrita()
   }, [])
 
   return (

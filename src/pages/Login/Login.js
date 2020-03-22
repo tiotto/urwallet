@@ -1,8 +1,9 @@
 import React from 'react'
-import styled from 'styled-components'
+
+import styledPage from '../styledPage'
+import LoginForm from '../../components/LoginForm'
 
 const Login = () =>
-  <>
-  </>
+  <LoginForm />
 
-export default Login
+export default styledPage(Login)
