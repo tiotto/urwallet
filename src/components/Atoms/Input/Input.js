@@ -52,8 +52,8 @@ const S = {
     font-family: inherit;
     font-size: var(--font-size-body1);
     color: var(--text-primary);
-    background: none;
-    border: ${props => props.isErrored ? '1px solid var(--feedback-error)' : '1px solid #B4B4C1'};
+    background: #f4f4f4;
+    border: ${props => props.isErrored ? '1px solid var(--feedback-error)' : 'none'};
     border-radius: var(--shape-rounded);
 
     .input::placeholder {
@@ -61,7 +61,6 @@ const S = {
     }
 
     @media ${device.tablet} {
-      margin-right: 12px;
     }
   `,
   Error: styled.div`
