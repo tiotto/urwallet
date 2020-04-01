@@ -1,25 +1,27 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
-import { getUrwallet } from '../../services/urwallet'
+import { useGlobalState } from '../../context'
 import { ReactComponent as WalletIcon } from '../../assets/wallet.svg'
+import { formatCurrency } from '../../utils/currencyFormatter'
+import api from '../../services/urwallet/api'
 
 const TotalBalance = () => {
+  const { user } = useGlobalState()
   const [balance, setBalance] = useState('')
 
   useEffect(() => {
     async function fetchBalance () {
-      const { data } = await getUrwallet()
+      const response = await api.get(`/accounts/${user.id}/transactions`)
 
-      console.log(data)
-      // setBalance(data)
+      setBalance(response.data.total)
     }
     fetchBalance()
   }, [])
 
   return (
     <S.TotalBalance>
-      <WalletIcon /> R$ 6666
+      <WalletIcon /> {formatCurrency(balance, 'BRL')}
     </S.TotalBalance>
   )
 }

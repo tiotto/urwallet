@@ -1,16 +1,24 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { useGlobalState } from '../../context'
 import { ReactComponent as UserIcon } from '../../assets/user.svg'
 
-const User = () =>
-  <S.User>
-    <S.Info>
-      <S.Email>thays@giotto.com</S.Email>
-      <S.Logout>Logout</S.Logout>
-    </S.Info>
-    <UserIcon />
-  </S.User>
+const User = () => {
+  const { user } = useGlobalState()
+
+  console.log(user.email)
+
+  return (
+    <S.User>
+      <S.Info>
+        <S.Email>{user.email}</S.Email>
+        <S.Logout>Logout</S.Logout>
+      </S.Info>
+      <UserIcon />
+    </S.User>
+  )
+}
 
 const S = {
   User: styled.div`
