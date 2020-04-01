@@ -1,3 +1,3 @@
-import { getUrwallet } from './api'
+import { api } from './api'
 
-export { getUrwallet }
+export { api }

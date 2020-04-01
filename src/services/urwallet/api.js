@@ -1,9 +1,17 @@
 import axios from 'axios'
 import { endpoint } from './config'
+import { getToken } from './auth'
 
-export const getUrwallet = async (email) => {
-  return axios({
-    url: endpoint,
-    method: 'GET'
-  })
-}
+const api = axios.create({
+  baseURL: endpoint
+})
+
+api.interceptors.request.use(async config => {
+  const token = getToken()
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`
+  }
+  return config
+})
+
+export default api
