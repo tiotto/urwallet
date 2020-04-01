@@ -7,7 +7,7 @@ import Footer from '../../components/Footer'
 import Balances from '../../components/Balances'
 import Extract from '../../components/Extract'
 
-const Dash = () =>
+const Dashboard = () => console.log('dashboard') ||
   <>
     <TickerBar />
     <Header />
@@ -16,4 +16,4 @@ const Dash = () =>
     <Footer />
   </>
 
-export default styledPage(Dash)
+export default styledPage(Dashboard)
