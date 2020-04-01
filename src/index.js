@@ -1,8 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Dash from './pages/Dash'
-import * as serviceWorker from './serviceWorker'
+import { BrowserRouter } from 'react-router-dom'
 
-ReactDOM.render(<Dash />, document.getElementById('root'))
+import App from './App'
 
-serviceWorker.unregister()
+ReactDOM.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+  , document.getElementById('root'))
