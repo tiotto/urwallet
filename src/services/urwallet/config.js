@@ -1,1 +1,1 @@
-export const endpoint = 'http://urwallet-api.herokuapp.com'
+export const endpoint = '//urwallet-api.herokuapp.com'
