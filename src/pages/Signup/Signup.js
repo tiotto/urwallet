@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 import Home from '../Home'
 import SignupForm from '../../components/SignupForm'
@@ -7,7 +8,9 @@ import SignupForm from '../../components/SignupForm'
 const Signup = () =>
   <>
     <Home>
-      <S.Back>←</S.Back>
+      <Link to='/'>
+        <S.Back>←</S.Back>
+      </Link>
       <S.Title>Cadastre-se</S.Title>
       <SignupForm />
     </Home>
@@ -25,10 +28,10 @@ const S = {
   Back: styled.div`
     display: inline-block;
     font-size: 28px;
-
+    color: #000;
 
     :hover {
-      background: red;
+      color: #317FF7;
     }
   `
 }
