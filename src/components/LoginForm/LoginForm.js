@@ -22,8 +22,8 @@ const LoginForm = ({ history }) => {
 
       const id = response.data.account.id
 
-      global.localStorage.setItem('urwallet_userId', id)
-      global.localStorage.setItem('urwallet_userEmail', email)
+      global.localStorage.setItem('urw_userId', id)
+      global.localStorage.setItem('urw_userEmail', email)
 
       globalState.setUser({ id, email })
 
