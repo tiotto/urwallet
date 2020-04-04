@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Link, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
 import { useGlobalState } from '../../context'
-import { login } from '../../services/urwallet/auth'
 import Input from '../Atoms/Input'
 import Button from '../../components/Atoms/Button'
 import api from '../../services/urwallet/api'
+import { login } from '../../services/urwallet/auth'
 
-const LoginForm = ({ history }) => {
+const SignupForm = ({ history }) => {
   const globalState = useGlobalState()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -17,6 +17,7 @@ const LoginForm = ({ history }) => {
     e.preventDefault()
 
     try {
+      await api.post('/accounts', { email, password })
       const response = await api.post('/sessions', { email, password })
       login(response.data.token)
 
@@ -34,51 +35,38 @@ const LoginForm = ({ history }) => {
   }
 
   return (
-    <S.Login onSubmit={handleSubmit}>
+    <S.Signup onSubmit={handleSubmit}>
       <S.Fields>
         <Input
           className='login'
           type='email'
-          placeholder='Insira seu email'
+          placeholder='Insira uma email'
           onChange={e => setEmail(e.target.value)}
           required
         />
         <Input
           className='password'
           type='password'
-          placeholder='Insira sua senha'
+          placeholder='Insira uma senha'
           onChange={e => setPassword(e.target.value)}
           required
         />
       </S.Fields>
-      <Button text='Entrar' />
-      <S.Signup>Novo por aqui? <Link to='signup'>Crie uma nova conta</Link></S.Signup>
-    </S.Login>
+      <Button text='Cadastrar' />
+    </S.Signup>
   )
 }
 
 const S = {
-  Login: styled.form`
-    text-align: center;
-  `,
+  Signup: styled.form``,
   Fields: styled.div`
-    .field {
-      margin-bottom: 12px;
+  .field {
+    margin-bottom: 12px;
 
-      &:last-child{
-        margin-bottom: 28px;
-      }
-  }
-  `,
-  Signup: styled.div`
-    margin-top: 22px;
-    text-align: center;
-    display: block;
-
-    a {
-      color: #000;
+    &:last-child{
+      margin-bottom: 28px;
     }
-  `
+  }`
 }
 
-export default withRouter(LoginForm)
+export default withRouter(SignupForm)

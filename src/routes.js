@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 
 import { isAuthenticated } from './services/urwallet/auth'
 import Login from './pages/Login'
+import Signup from './pages/Signup'
 import Dashboard from './pages/Dashboard'
 import Exchange from './pages/Exchange'
 import Trade from './pages/Trade'
@@ -20,6 +21,7 @@ const Routes = () => (
   <BrowserRouter>
     <Switch>
       <Route exact path='/' component={Login} />
+      <Route exact path='/signup' component={Signup} />
       <PrivateRoute path='/dashboard' component={Dashboard} />
       <PrivateRoute path='/exchange' component={Exchange} />
       <PrivateRoute path='/trade' component={Trade} />

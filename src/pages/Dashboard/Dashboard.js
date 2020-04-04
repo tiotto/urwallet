@@ -9,11 +9,11 @@ import Extract from '../../components/Extract'
 
 const Dashboard = () =>
   <>
-    <TickerBar />
-    <Header />
+    {/* <TickerBar />
+    <Header /> */}
     <Balances />
     <Extract />
-    <Footer />
+    {/* <Footer /> */}
   </>
 
 export default styledPage(Dashboard)
