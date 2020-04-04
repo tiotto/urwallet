@@ -31,4 +31,4 @@ const S = {
   `
 }
 
-export default TotalBalance
+export default React.memo(TotalBalance)

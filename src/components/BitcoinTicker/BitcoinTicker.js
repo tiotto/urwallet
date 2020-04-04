@@ -1,17 +1,24 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
+import { useGlobalState } from '../../context'
 import { getBitcoin } from '../../services/bitcoinTicker'
 import { formatCurrency } from '../../utils/currencyFormatter'
 
 const Bitcoin = () => {
+  const globalState = useGlobalState()
   const [bitcoin, setBitcoin] = useState('')
 
   useEffect(() => {
     async function fetchData () {
       const { data } = await getBitcoin()
 
-      setBitcoin(data.ticker.last)
+      const current = data.ticker.last
+
+      global.localStorage.setItem('urw_current_btc', current)
+      globalState.setBitcoin({ current })
+
+      setBitcoin(current)
     }
     fetchData()
   }, [])
@@ -29,4 +36,4 @@ const S = {
   `
 }
 
-export default Bitcoin
+export default React.memo(Bitcoin)

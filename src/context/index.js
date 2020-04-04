@@ -1,7 +1,7 @@
 import React, { createContext, useReducer, useContext } from 'react'
 // import PropTypes from 'prop-types'
 
-import rootReducer, { initialState, SET_USERID } from './reducer'
+import rootReducer, { initialState, SET_USERID, SET_BITCOIN } from './reducer'
 
 const Context = createContext()
 
@@ -25,9 +25,18 @@ function useGlobalState () {
     })
   }
 
+  const setBitcoin = bitcoin => {
+    dispatch({
+      type: SET_BITCOIN,
+      payload: bitcoin
+    })
+  }
+
   return {
     setUser,
-    user: state.user
+    user: state.user,
+    setBitcoin,
+    bitcoin: state.bitcoin
   }
 }
 
