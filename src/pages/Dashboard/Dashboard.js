@@ -7,7 +7,7 @@ import Footer from '../../components/Footer'
 import Balances from '../../components/Balances'
 import Extract from '../../components/Extract'
 
-const Dashboard = () => console.log('dashboard') ||
+const Dashboard = () =>
   <>
     <TickerBar />
     <Header />

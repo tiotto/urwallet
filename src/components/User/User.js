@@ -7,8 +7,6 @@ import { ReactComponent as UserIcon } from '../../assets/user.svg'
 const User = () => {
   const { user } = useGlobalState()
 
-  console.log(user.email)
-
   return (
     <S.User>
       <S.Info>
