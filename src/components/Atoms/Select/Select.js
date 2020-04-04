@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Select = ({ children }) =>
-  <S.Select>
+const Select = ({ children, ...props }) =>
+  <S.Select {...props}>
     {React.Children.map(children, child =>
-      <option>{child.props.children}</option>
+      <option value={child.props.value}>{child.props.children}</option>
     )}
   </S.Select>
 
