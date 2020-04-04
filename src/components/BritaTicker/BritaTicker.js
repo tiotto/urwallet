@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
+import day from 'dayjs'
 
 import { getBrita } from '../../services/britaTicker'
 import { formatCurrency } from '../../utils/currencyFormatter'
@@ -8,9 +9,11 @@ import { formatCurrency } from '../../utils/currencyFormatter'
 const Brita = () => {
   const [brita, setBrita] = useState('')
 
+  const now = day().subtract(1, 'day').format('MM-DD-YYYY')
+
   useEffect(() => {
     async function fetchBrita () {
-      const { data } = await getBrita('03-17-2020')
+      const { data } = await getBrita(now)
 
       setBrita(data.value[0].cotacaoCompra)
     }
