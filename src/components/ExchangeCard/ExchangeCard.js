@@ -14,7 +14,7 @@ const ExchangeCard = ({ blockchain, price }) => {
         type: 'Compra',
         amount: (price / bitcoin.current),
         blockchain: blockchain,
-        value: (bitcoin.current / price)
+        value: price
       })
     } catch (err) {
       console.log(err, 'Tente novamente.')
