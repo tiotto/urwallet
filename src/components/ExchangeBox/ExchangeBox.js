@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
 import { useGlobalState } from '../../context'
@@ -7,33 +7,38 @@ import ExchangeCard from '../ExchangeCard'
 
 const ExchangeBox = () => {
   const { bitcoin } = useGlobalState()
+  const [currency, setCurrency] = useState('Bitcoin')
+
+  const handleChange = e => {
+    setCurrency(e.target.value)
+  }
 
   return (
     <S.ExchangeBox>
-      <Select>
-        <option>Bitcoin</option>
-        <option>Brita</option>
+      <Select onChange={handleChange}>
+        <option value='Bitcoin'>Bitcoin</option>
+        <option value='Brita'>Brita</option>
       </Select>
 
       <ExchangeCard
         price={100}
-        blockchain='Bitcoin'
+        blockchain={currency}
       />
       <ExchangeCard
         price={250}
-        blockchain='Bitcoin'
+        blockchain={currency}
       />
       <ExchangeCard
         price={500}
-        blockchain='Bitcoin'
+        blockchain={currency}
       />
       <ExchangeCard
         price={1000}
-        blockchain='Bitcoin'
+        blockchain={currency}
       />
       <ExchangeCard
         price={bitcoin.current}
-        blockchain='Bitcoin'
+        blockchain={currency}
       />
     </S.ExchangeBox>
   )
