@@ -4,6 +4,8 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import { isAuthenticated } from './services/urwallet/auth'
 import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
+import Exchange from './pages/Exchange'
+import Trade from './pages/Trade'
 import NotFound from './pages/NotFound'
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
@@ -19,6 +21,8 @@ const Routes = () => (
     <Switch>
       <Route exact path='/' component={Login} />
       <PrivateRoute path='/dashboard' component={Dashboard} />
+      <PrivateRoute path='/exchange' component={Exchange} />
+      <PrivateRoute path='/trade' component={Trade} />
       <Route path='*' component={NotFound} />
     </Switch>
   </BrowserRouter>
