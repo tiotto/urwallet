@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 import Menu from '../Menu'
 import { ReactComponent as Logo } from '../../assets/logo.svg'
@@ -11,7 +12,9 @@ const Header = () =>
   <S.Header>
     <S.Wrapper>
       <S.LogoMenu>
-        <Logo className='logo' />
+        <Link to='/dashboard'>
+          <Logo className='logo' />
+        </Link>
         <Menu />
       </S.LogoMenu>
       <TotalBalance />
