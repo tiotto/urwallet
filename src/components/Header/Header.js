@@ -1,31 +1,36 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import { useLocation, Link } from 'react-router-dom'
 
 import Menu from '../Menu'
 import { ReactComponent as Logo } from '../../assets/logo.svg'
 import { device } from '../../theme/breakpoints'
 import User from '../User'
-import TotalBalance from '../../components/TotalBalance'
+import Wallet from '../../components/Wallet'
 
-const Header = () =>
-  <S.Header>
-    <S.Wrapper>
-      <S.LogoMenu>
-        <Link to='/dashboard'>
-          <Logo className='logo' />
-        </Link>
-        <Menu />
-      </S.LogoMenu>
-      <TotalBalance />
-      <User />
-    </S.Wrapper>
-  </S.Header>
+const Header = () => {
+  const location = useLocation()
+
+  return (
+    <S.Header>
+      <S.Wrapper>
+        <S.LogoMenu>
+          <Link to='/dashboard'>
+            <Logo className='logo' />
+          </Link>
+          <Menu />
+        </S.LogoMenu>
+        {location.pathname !== '/dashboard' ? <Wallet /> : null}
+        <User />
+      </S.Wrapper>
+    </S.Header>
+  )
+}
 
 const S = {
   Header: styled.header`
     height: 48px;
-    background: #EEEEEE;
+    background: #403F4B;
 
     & .logo {
       margin-right: 22px;
@@ -44,7 +49,9 @@ const S = {
     }
   `,
   LogoMenu: styled.div`
-
+   a {
+    color: #FFF;
+   }
   `
 }
 
