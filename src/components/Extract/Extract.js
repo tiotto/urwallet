@@ -45,7 +45,6 @@ const Extract = (/*{data, type, blockchain, quantia, saldo }*/) =>
 const S = {
   Extract: styled.section`
     background: #FFF;
-    padding: 42px 52px;
     margin: auto;
 
     @media ${device.tablet} {
@@ -59,12 +58,15 @@ const S = {
   `,
   Table: styled.table`
     text-align: left;
+    width: 100%;
   `,
   Body: styled.tbody``,
   Header: styled.thead``,
   Heading: styled.th`
+    background: #F3F5FF;
+    color: #707AAD;
     font-weight: 600;
-    padding: 8px 22px;
+    padding: 12px 22px;
   `,
   Row: styled.tr`
     height: 26px;
