@@ -1,13 +1,14 @@
 export const SET_USERID = 'SET_USERID'
 export const SET_BITCOIN = 'SET_BITCOIN'
-// export const SET_BRITA = 'SET_BRITA'
+export const SET_BRITA = 'SET_BRITA'
 
 export const initialState = {
   user: {
     id: global.window ? global.window.localStorage.getItem('urw_userId') : '',
     email: global.window ? global.window.localStorage.getItem('urw_userEmail') : ''
   },
-  bitcoin: global.window ? global.window.localStorage.getItem('urw_current_btc') : ''
+  bitcoin: global.window ? global.window.localStorage.getItem('urw_current_btc') : '',
+  brita: global.window ? global.window.localStorage.getItem('urw_current_brt') : ''
 }
 
 const reducer = (state, action) => { console.log('state', state)
@@ -27,6 +28,15 @@ const reducer = (state, action) => { console.log('state', state)
         ...state,
         bitcoin: {
           ...state.bitcoin,
+          ...action.payload
+        }
+      }
+
+    case SET_BRITA:
+      return {
+        ...state,
+        brita: {
+          ...state.brita,
           ...action.payload
         }
       }

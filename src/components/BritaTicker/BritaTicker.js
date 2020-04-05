@@ -3,11 +3,13 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import day from 'dayjs'
 
+import { useGlobalState } from '../../context'
 import { getBrita } from '../../services/britaTicker'
 import { formatCurrency } from '../../utils/currencyFormatter'
 
 const Brita = () => {
   const [brita, setBrita] = useState('')
+  const globalState = useGlobalState()
 
   const now = day().subtract(2, 'day').format('MM-DD-YYYY')
 
@@ -15,7 +17,12 @@ const Brita = () => {
     async function fetchBrita () {
       const { data } = await getBrita(now)
 
-      setBrita(data.value[0].cotacaoCompra)
+      const current = data.value[0].cotacaoCompra
+
+      global.localStorage.setItem('urw_current_brt', current)
+      globalState.setBitcoin({ current })
+
+      setBrita(current)
     }
     fetchBrita()
   }, [])

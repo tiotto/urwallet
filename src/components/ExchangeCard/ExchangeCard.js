@@ -6,13 +6,15 @@ import api from '../../services/urwallet/api'
 import { formatCurrency } from '../../utils/currencyFormatter'
 
 const ExchangeCard = ({ blockchain, price }) => {
-  const { bitcoin, user } = useGlobalState()
+  const { user, bitcoin, brita } = useGlobalState()
+  const currency = (blockchain === 'Bitcoin' ? bitcoin.current : brita)
+  const amount = price/currency
 
   const handleClick = async e => {
     try {
       await api.post(`/accounts/${user.id}/transactions`, {
         type: 'Compra',
-        amount: (price / bitcoin.current),
+        amount: amount,
         blockchain: blockchain,
         value: price
       })
@@ -24,8 +26,8 @@ const ExchangeCard = ({ blockchain, price }) => {
   return (
     <S.Card>
       <S.Currency>{blockchain}</S.Currency>
-      <S.Amount>{price / bitcoin.current}</S.Amount>
-      <S.Price>{formatCurrency(price, 'BRL')}</S.Price>
+      <S.Amount>{blockchain === 'Bitcoin' ? amount : formatCurrency(amount, 'USD')} </S.Amount>
+      <S.Price>Por {formatCurrency(price, 'BRL')}</S.Price>
       <S.Buy onClick={handleClick}>🛒</S.Buy>
     </S.Card>
   )
