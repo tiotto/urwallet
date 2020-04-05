@@ -4,12 +4,13 @@ import styled from 'styled-components'
 import styledPage from '../styledPage'
 import { ReactComponent as Logo } from '../../assets/logo.svg'
 import { ReactComponent as Pattern } from '../../assets/pattern.svg'
+import { device } from '../../theme/breakpoints'
 
 const Home = ({ children }) =>
   <S.Home>
     <S.Content>
       <S.Logo>
-        <SmallerLogo />
+        <StyledLogo />
         <S.Slogan>Criptomoedas para a vida toda.</S.Slogan>
       </S.Logo>
 
@@ -23,14 +24,19 @@ const Home = ({ children }) =>
     </S.Background>
   </S.Home>
 
-const SmallerLogo = styled(Logo)`
+const StyledLogo = styled(Logo)`
   height: 24px;
   margin-bottom: 8px;
 `
 const MovingPattern = styled(Pattern)`
-  animation: 5.6s linear 0s infinite alternate shrink;
-  width: 800px;
-  height: 1200px;
+  display: none;
+
+  @media ${device.desktop} {
+    display: block;
+    animation: 5.6s linear 0s infinite alternate shrink;
+    width: 800px;
+    height: 1200px;
+  }
 
   @keyframes shrink {
     0% {
@@ -50,11 +56,15 @@ const S = {
     bottom: 20%;
   `,
   Content: styled.section`
-    position: relative;
-    padding: 82px 92px;
-    background: #FFF;
-    height: 100vh;
-    width: 50%;
+    padding: 32px 32px;
+
+    @media ${device.desktop} {
+      padding: 82px 92px;
+      position: relative;
+      background: #FFF;
+      height: 100vh;
+      width: 50%;
+    }
   `,
   Logo: styled.div``,
   Slogan: styled.div`
@@ -70,13 +80,16 @@ const S = {
     width: 300px;
   `,
   Background: styled.div`
-    overflow: hidden;
-    background: #002746;
-    position: absolute;
-    height: 100%;
-    width: 50%;
-    top: 0;
-    right: 0;
+
+    @media ${device.desktop} {
+      overflow: hidden;
+      background: #002746;
+      position: absolute;
+      height: 100%;
+      width: 50%;
+      top: 0;
+      right: 0;
+    }
   `
 }
 
