@@ -21,6 +21,7 @@ const User = () => {
 const S = {
   User: styled.div`
     display: flex;
+    color: #FFF;
     align-items: center;
 
     & svg {
