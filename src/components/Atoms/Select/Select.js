@@ -10,7 +10,15 @@ const Select = ({ children, ...props }) =>
 
 const S = {
   Select: styled.select`
-    background: red;
+    border: 1px solid #E5EEF6;
+    background: #F3F5FF;
+    width: 120px;
+    height: 28px;
+    font-weight: 600;
+    color: #707AAD;
+    font-size: 14px;
+    height: 40px;
+    padding: 0 12px;
   `
 }
 

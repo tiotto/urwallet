@@ -20,7 +20,7 @@ const Brita = () => {
       const current = data.value[0].cotacaoCompra
 
       global.localStorage.setItem('urw_current_brt', current)
-      globalState.setBitcoin({ current })
+      globalState.setBrita({ current })
 
       setBrita(current)
     }

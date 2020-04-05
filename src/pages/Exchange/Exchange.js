@@ -12,7 +12,6 @@ const Exchange = () =>
     <TickerBar />
     <Header />
     <Footer />
-    comprar ou vender
     <ExchangeBox />
   </S.Exchange>
 
