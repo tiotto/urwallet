@@ -2,33 +2,40 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
 import { useGlobalState } from '../../context'
-import { ReactComponent as WalletIcon } from '../../assets/wallet.svg'
 import { formatCurrency } from '../../utils/currencyFormatter'
 import api from '../../services/urwallet/api'
 
-const TotalBalance = () => {
+const Wallet = () => {
   const { user } = useGlobalState()
-  const [balance, setBalance] = useState('')
+
+  const [real, setReal] = useState('')
+  const [brita, setBrita] = useState('')
+  const [bitcoin, setBitcoin] = useState('')
 
   useEffect(() => {
     async function fetchBalance () {
       const response = await api.get(`/accounts/${user.id}/transactions`)
 
-      setBalance(response.data.total)
+      setReal(response.data.total)
+      setBrita(response.data.brita)
+      setBitcoin(response.data.bitcoin)
     }
     fetchBalance()
   }, [])
 
   return (
-    <S.TotalBalance>
-      <WalletIcon /> {formatCurrency(balance, 'BRL')}
-    </S.TotalBalance>
+    <S.Wallet>
+      {formatCurrency(real, 'BRL')} |
+      $ {formatCurrency(brita, 'BRL')} |
+      ₿ {bitcoin}
+    </S.Wallet>
   )
 }
 
 const S = {
-  TotalBalance: styled.div`
+  Wallet: styled.div`
+    color: #FFF;
   `
 }
 
-export default React.memo(TotalBalance)
+export default React.memo(Wallet)
