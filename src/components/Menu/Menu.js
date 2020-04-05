@@ -1,19 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 const Menu = () =>
   <S.Menu>
     <S.MenuItems>
       <S.MenuItem>
-        <Link to='/exchange'>
+        <NavLink to='/exchange' activeClassName='selected'>
           Comprar/Vender
-        </Link>
+        </NavLink>
       </S.MenuItem>
       <S.MenuItem>
-        <Link to='/trade'>
+        <NavLink to='/trade' activeClassName='selected'>
           Trocar
-        </Link>
+        </NavLink>
       </S.MenuItem>
     </S.MenuItems>
   </S.Menu>
@@ -24,10 +24,20 @@ const S = {
   `,
   MenuItems: styled.ul`
     display: inline-block;
+
+    a {
+      text-decoration: none;
+    }
   `,
   MenuItem: styled.li`
     display: inherit;
     padding: 0 12px;
+
+    & .selected {
+      border-bottom: 4px solid #707AAD;
+      display: inline-block;
+      padding: 11px 0;
+    }
   `
 }
 

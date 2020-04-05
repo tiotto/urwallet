@@ -16,7 +16,7 @@ const Header = () => {
       <S.Wrapper>
         <S.LogoMenu>
           <Link to='/dashboard'>
-            <Logo className='logo' />
+            <StyledLogo />
           </Link>
           <Menu />
         </S.LogoMenu>
@@ -27,15 +27,15 @@ const Header = () => {
   )
 }
 
+const StyledLogo = styled(Logo)`
+  height: 18px;
+  margin-right: 14px;
+`
+
 const S = {
   Header: styled.header`
     height: 48px;
     background: #403F4B;
-
-    & .logo {
-      margin-right: 22px;
-      height: 22px;
-    }
   `,
   Wrapper: styled.div`
     align-items: center;

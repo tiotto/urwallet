@@ -21,6 +21,7 @@ const User = () => {
 const S = {
   User: styled.div`
     display: flex;
+    margin-bottom: 8px;
     color: #FFF;
     align-items: center;
 
