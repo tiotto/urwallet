@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 import { formatCurrency } from '../../utils/currencyFormatter'
+import { device } from '../../theme/breakpoints'
 
 const Balance = ({ currency, balance, amount }) =>
   <S.Balance>
@@ -22,14 +23,17 @@ Balance.propTypes = {
 const S = {
   Balance: styled.section`
     border: 1px solid #E5EEF6;
-    width: 215px;
     height: 120px;
-    /* padding: 20px; */
     text-align: center;
     flex-direction: column;
     background: #FFF;
     border-radius: 4px;
-    margin: 26px 18px 44px 0;
+    margin: 28px 0;
+
+    @media ${device.desktop} {
+      margin: 26px 18px 44px 0;
+      width: 215px;
+    }
   `,
   Currency: styled.div`
     color: #707AAD;

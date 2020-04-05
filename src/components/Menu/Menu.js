@@ -31,12 +31,11 @@ const S = {
   `,
   MenuItem: styled.li`
     display: inherit;
-    padding: 0 12px;
+    padding: 2px 12px;
 
     & .selected {
-      border-bottom: 4px solid #707AAD;
+      text-decoration: underline;
       display: inline-block;
-      padding: 11px 0;
     }
   `
 }

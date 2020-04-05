@@ -6,40 +6,29 @@ import { device } from '../../theme/breakpoints'
 const Extract = (/*{data, type, blockchain, quantia, saldo }*/) =>
   <S.Extract>
     <S.Title>Últimas transações:</S.Title>
-    <S.Table>
-      <S.Header>
-        <S.Row>
-          <S.Heading>Data</S.Heading>
-          <S.Heading>Tipo</S.Heading>
-          <S.Heading>Blockchain</S.Heading>
-          <S.Heading>Quantia</S.Heading>
-          <S.Heading>Saldo</S.Heading>
-        </S.Row>
-      </S.Header>
-      <S.Body>
-        <S.Row>
-          <S.Data>2020-03-12 09:36:52</S.Data>
-          <S.Data>Compra</S.Data>
-          <S.Data>Bitcoin</S.Data>
-          <S.Data>1000</S.Data>
-          <S.Data>-37.908,00</S.Data>
-        </S.Row>
-        {/* <S.Row>
-          <S.Data>2020-03-12 09:36:52</S.Data>
-          <S.Data>Compra</S.Data>
-          <S.Data>Bitcoin</S.Data>
-          <S.Data>1000</S.Data>
-          <S.Data>-37.908,00</S.Data>
-        </S.Row>
-        <S.Row>
-          <S.Data>2020-03-12 09:36:52</S.Data>
-          <S.Data>Compra</S.Data>
-          <S.Data>Bitcoin</S.Data>
-          <S.Data>1000</S.Data>
-          <S.Data>-37.908,00</S.Data>
-        </S.Row> */}
-      </S.Body>
-    </S.Table>
+
+    <S.Wrapper>
+      <S.Table>
+        <S.Header>
+          <S.Row>
+            <S.Heading>Data</S.Heading>
+            <S.Heading>Tipo</S.Heading>
+            <S.Heading>Blockchain</S.Heading>
+            <S.Heading>Quantia</S.Heading>
+            <S.Heading>Saldo</S.Heading>
+          </S.Row>
+        </S.Header>
+        <S.Body>
+          <S.Row>
+            <S.Data>2020-03-12 09:36:52</S.Data>
+            <S.Data>Compra</S.Data>
+            <S.Data>Bitcoin</S.Data>
+            <S.Data>1000</S.Data>
+            <S.Data>-37.908,00</S.Data>
+          </S.Row>
+        </S.Body>
+      </S.Table>
+    </S.Wrapper>
   </S.Extract>
 
 const S = {
@@ -58,7 +47,13 @@ const S = {
   `,
   Table: styled.table`
     text-align: left;
-    width: 100%;
+
+    @media ${device.desktop} {
+      width: 100%;
+    }
+  `,
+  Wrapper: styled.div`
+    overflow: auto;
   `,
   Body: styled.tbody``,
   Header: styled.thead``,

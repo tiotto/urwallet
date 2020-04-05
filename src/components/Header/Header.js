@@ -29,28 +29,35 @@ const Header = () => {
 
 const StyledLogo = styled(Logo)`
   height: 18px;
+  color: #FFF;
   margin-right: 14px;
 `
 
 const S = {
   Header: styled.header`
-    height: 48px;
+    height: 90px;
     background: #403F4B;
+
+    @media ${device.tablet} {
+      height: 48px;
+    }
   `,
   Wrapper: styled.div`
     align-items: center;
-    display: flex;
+    text-align: center;
     margin: auto;
     justify-content: space-between;
-    padding: 6px 0;
+    padding: 8px 16px;
 
     @media ${device.tablet} {
+      display: flex;
+      padding: 4px 0;
       width: 1200px;
     }
   `,
   LogoMenu: styled.div`
    a {
-    color: #FFF;
+    color: #d1d4e6;
    }
   `
 }

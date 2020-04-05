@@ -13,10 +13,10 @@ const Balances = () =>
 
 const S = {
   Balances: styled.section`
-    display: flex;
     margin: auto;
 
     @media ${device.tablet} {
+      display: flex;
       width: 1200px;
     }
   `

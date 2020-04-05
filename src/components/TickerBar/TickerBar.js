@@ -17,12 +17,13 @@ const S = {
     background: #35343D;
   `,
   Wrapper: styled.div`
-    padding: 8px 0px;
+    padding: 8px 16px;
     margin: auto;
-    color: #FFF;
+    color: #d1d4e6;
     text-align: left;
 
     @media ${device.tablet} {
+      padding: 8px 0px;
       width: 1200px;
     }
   `

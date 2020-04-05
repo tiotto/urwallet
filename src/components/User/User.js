@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { device } from '../../theme/breakpoints'
 import { useGlobalState } from '../../context'
 import { ReactComponent as UserIcon } from '../../assets/user.svg'
 
@@ -13,20 +14,27 @@ const User = () => {
         <S.Email>{user.email}</S.Email>
         <S.Logout>Logout</S.Logout>
       </S.Info>
-      <UserIcon />
+      <StyledUserIcon />
     </S.User>
   )
 }
 
+const StyledUserIcon = styled(UserIcon)`
+`
+
 const S = {
   User: styled.div`
-    display: flex;
+    display: none;
     margin-bottom: 8px;
-    color: #FFF;
+    color: #d1d4e6;
     align-items: center;
 
     & svg {
       margin-left: 12px;
+    }
+
+    @media ${device.tablet} {
+      display: flex;
     }
   `,
   Logout: styled.div`
@@ -37,6 +45,7 @@ const S = {
   Info: styled.div`
   `,
   Email: styled.div`
+    font-size: 14px;
     margin-bottom: 4px;
   `
 }
