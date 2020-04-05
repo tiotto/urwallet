@@ -35,7 +35,6 @@ const StyledLogo = styled(Logo)`
 
 const S = {
   Header: styled.header`
-    height: 90px;
     background: #403F4B;
 
     @media ${device.tablet} {
