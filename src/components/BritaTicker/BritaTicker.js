@@ -9,7 +9,7 @@ import { formatCurrency } from '../../utils/currencyFormatter'
 const Brita = () => {
   const [brita, setBrita] = useState('')
 
-  const now = day().subtract(1, 'day').format('MM-DD-YYYY')
+  const now = day().subtract(2, 'day').format('MM-DD-YYYY')
 
   useEffect(() => {
     async function fetchBrita () {
