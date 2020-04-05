@@ -25,7 +25,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: #F4F4F4;
+    background: #FFF;
     font-family: 'Source Sans Pro', sans-serif;
   }
 
