@@ -1,1 +1,1 @@
-export const endpoint = 'https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarDia(dataCotacao=@dataCotacao)?'
+export const endpoint = 'https://economia.awesomeapi.com.br/all/USD-BRL'
