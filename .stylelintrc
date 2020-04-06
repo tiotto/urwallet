@@ -1,0 +1,28 @@
+{
+  "processors": ["stylelint-processor-styled-components"],
+  "extends": [
+    "stylelint-config-twbs-bootstrap/css",
+    "stylelint-config-recommended",
+    "stylelint-config-styled-components"
+  ],
+  'rules': {
+    'color-named': null,
+    'color-hex-case': null,
+    'function-whitespace-after': null,
+    'font-family-no-missing-generic-family-keyword': null,
+    'font-family-name-quotes': null,
+    'no-missing-end-of-source-newline': null,
+    'value-keyword-case': null,
+    'no-eol-whitespace': null,
+    'value-no-vendor-prefix': null,
+    'property-no-vendor-prefix': null,
+    'declaration-block-trailing-semicolon': null,
+    'selector-descendant-combinator-no-non-space': null,
+    'selector-list-comma-newline-after': 'always-multi-line',
+    'string-quotes': 'single',
+    'no-descending-specificity': null,
+    'selector-class-pattern': '^(?:(?:o|c|u|t|s|is|has|_|js|qa)-)?[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*(?:__[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:--[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:\\[.+\\])?$',
+    'selector-max-id': 1,
+    'selector-max-type': 4
+  }
+}
