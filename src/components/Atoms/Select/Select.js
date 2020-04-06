@@ -24,7 +24,7 @@ const S = {
     font-size: 14px;
     font-weight: 600;
     color: #707AAD;
-    background: #F3F5FF;
+    background: (--base-primary);
     border: 1px solid #E5EEF6;
   `
 }

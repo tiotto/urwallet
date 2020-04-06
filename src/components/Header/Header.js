@@ -25,12 +25,12 @@ const Header = () =>
 const StyledLogo = styled(Logo)`
   height: 18px;
   margin-right: 14px;
-  color: #FFF;
+  color: var(--text-secondary)
 `
 
 const S = {
   Header: styled.header`
-    background: #403F4B;
+    background: (--base-secondary-dark);
 
     @media ${device.tablet} {
       height: 48px;
@@ -51,7 +51,7 @@ const S = {
   `,
   LogoMenu: styled.div`
     a {
-      color: #d1d4e6;
+      color: var(--text-primary-light);
     }
   `
 }

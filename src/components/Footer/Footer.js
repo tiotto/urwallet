@@ -19,11 +19,11 @@ const S = {
     bottom: 0;
     width: 100%;
     padding: 16px;
-    color: #FFF;
-    background: #403F4B;
+    color: var(--text-secondary);
+    background: (--base-secondary-dark);
   `,
   Text: styled.p`
-    color: #fff;
+    color: var(--text-secondary);
     text-align: center;
   `
 }

@@ -14,12 +14,12 @@ const TickerBar = () =>
 
 const S = {
   TickerBar: styled.section`
-    background: #35343D;
+    background: var(--base-primary-dark);
   `,
   Wrapper: styled.div`
     padding: 8px 16px;
     margin: auto;
-    color: #d1d4e6;
+    color: var(--text-primary-light);
     text-align: left;
 
     @media ${device.tablet} {

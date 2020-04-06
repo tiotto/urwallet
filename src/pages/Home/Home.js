@@ -41,62 +41,61 @@ const MovingPattern = styled(Pattern)`
 
   @media ${device.desktop} {
     display: block;
-    animation: 5.6s linear 0s infinite alternate shrink;
     width: 800px;
     height: 1200px;
+    animation: 5.6s linear 0s infinite alternate shrink;
   }
 
   @keyframes shrink {
     0% {
-      transform:  translate(0px,-100px)
+      transform: translate(0, -100px)
     }
     100% {
-      transform:  translate(0px,10px);
+      transform: translate(0, 10px);
     }
   }
 `
 
 const S = {
-  Home: styled.section`
-  `,
+  Home: styled.section``,
   FormWrapper: styled.div`
     position: absolute;
     bottom: 20%;
   `,
   Content: styled.section`
-    padding: 32px 32px;
+    padding: 32px;
 
     @media ${device.desktop} {
-      padding: 82px 92px;
       position: relative;
-      background: #FFF;
-      height: 100vh;
       width: 50%;
+      height: 100vh;
+      padding: 82px 92px;
+      background: (--bg-primary);
     }
   `,
   Logo: styled.div``,
   Slogan: styled.div`
-    color: #CCC;
     font-size: 16px;
+    color: #CCC;
   `,
   Title: styled.h2`
-    margin-bottom: 28px;
     position: relative;
-    color: #000;
-    line-height: 42px;
-    font-size: 28px;
     width: 300px;
+    margin-bottom: 28px;
+    font-size: 28px;
+    line-height: 42px;
+    color: var(--text-primary);
   `,
   Background: styled.div`
 
     @media ${device.desktop} {
-      overflow: hidden;
-      background: #002746;
       position: absolute;
-      height: 100%;
-      width: 50%;
       top: 0;
       right: 0;
+      width: 50%;
+      height: 100%;
+      overflow: hidden;
+      background: #002746;
     }
   `
 }

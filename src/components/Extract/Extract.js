@@ -53,7 +53,7 @@ const Extract = () => {
 const S = {
   Extract: styled.section`
     margin: auto;
-    background: #FFF;
+    background: (--bg-primary);
 
     @media ${device.tablet} {
       width: 1200px;
@@ -81,13 +81,13 @@ const S = {
     padding: 12px 22px;
     font-weight: 600;
     color: #707AAD;
-    background: #F3F5FF;
+    background: (--base-primary);
   `,
   Row: styled.tr`
     height: 26px;
 
     &:nth-child(even) {
-      background: #F4F4F4;
+      background: (--base-primary);
     }
   `,
   Data: styled.td`

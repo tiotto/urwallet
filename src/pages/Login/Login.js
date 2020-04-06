@@ -14,12 +14,12 @@ const Login = () =>
 
 const S = {
   Title: styled.h2`
-    margin-bottom: 28px;
     position: relative;
-    color: #000;
-    line-height: 42px;
-    font-size: 28px;
     width: 300px;
+    margin-bottom: 28px;
+    font-size: 28px;
+    line-height: 42px;
+    color: var(--text-primary);
   `
 }
 

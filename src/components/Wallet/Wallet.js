@@ -34,7 +34,7 @@ const Wallet = () => {
 
 const S = {
   Wallet: styled.div`
-    color: #FFF;
+    color: var(--text-secondary)
   `
 }
 

@@ -18,17 +18,17 @@ const Signup = () =>
 
 const S = {
   Title: styled.h2`
-    margin-bottom: 28px;
     position: relative;
-    color: #000;
-    line-height: 42px;
-    font-size: 28px;
     width: 300px;
+    margin-bottom: 28px;
+    font-size: 28px;
+    line-height: 42px;
+    color: var(--text-primary);
   `,
   Back: styled.div`
     display: inline-block;
     font-size: 28px;
-    color: #000;
+    color: var(--text-primary);
 
     :hover {
       color: #317FF7;

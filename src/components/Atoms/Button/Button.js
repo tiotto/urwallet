@@ -17,10 +17,10 @@ const S = {
     width: 180px;
     padding: 12px 20px;
     font-size: 14px;
-    color: #FFF;
+    color: var(--text-secondary);
     background: #317FF7;
     border: none;
-    border-radius: 20px;
+    border-radius: (--shape-round);
   `
 }
 

@@ -81,7 +81,7 @@ const S = {
     text-align: center;
 
     a {
-      color: #000;
+      color: var(--text-primary)
     }
   `
 }

@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { device } from '../../../theme/breakpoints'
 import { ReactComponent as ErrorIcon } from '../../../assets/error.svg'
 
 const Input = ({ className, warning, error, ...props }) =>
@@ -58,9 +57,6 @@ const S = {
 
     .input::placeholder {
       color: var(--text-primary);
-    }
-
-    @media ${device.tablet} {
     }
   `,
   Error: styled.div`

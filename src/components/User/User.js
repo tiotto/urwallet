@@ -26,7 +26,7 @@ const S = {
     display: none;
     align-items: center;
     margin-bottom: 8px;
-    color: #d1d4e6;
+    color: var(--text-primary-light);
 
     & svg {
       margin-left: 12px;

@@ -43,7 +43,7 @@ const S = {
     width: 120px;
     height: 28px;
     font-size: 16px;
-    background: #F3F5FF;
+    background: (--base-primary);
     border: 1px solid #E5EEF6;
   `,
   TradeBox: styled.section``,
