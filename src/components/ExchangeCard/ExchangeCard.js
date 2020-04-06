@@ -48,10 +48,10 @@ const S = {
   Card: styled.div`
     display: inline-block;
     width: 100%;
-    border: 1px solid #E5EEF6;
-    border-radius: 4px;
     padding: 12px;
     margin-bottom: 12px;
+    border: 1px solid #E5EEF6;
+    border-radius: 4px;
 
     @media ${device.tablet} {
       margin-right: 12px;
@@ -62,9 +62,9 @@ const S = {
     }
   `,
   Currency: styled.div`
+    margin-bottom: 4px;
     font-weight: 600;
     color: #707AAD;
-    margin-bottom: 4px;
   `,
   Amount: styled.div`
     margin-bottom: 12px;
@@ -74,13 +74,13 @@ const S = {
   `,
   Buy: styled.div`
     display: inline-block;
-    height: 30px;
     width: 100px;
+    height: 30px;
     padding: 5px;
-    text-align: center;
     margin-left: 12px;
-    border: 2px solid #707AAD;
+    text-align: center;
     cursor: pointer;
+    border: 2px solid #707AAD;
     border-radius: 20px;
   `,
   Wrapper: styled.div`

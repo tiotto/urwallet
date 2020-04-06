@@ -65,13 +65,14 @@ SignupForm.propTypes = {
 const S = {
   Signup: styled.form``,
   Fields: styled.div`
-  .field {
-    margin-bottom: 12px;
+    .field {
+      margin-bottom: 12px;
 
-    &:last-child{
-      margin-bottom: 28px;
+      &:last-child {
+        margin-bottom: 28px;
+      }
     }
-  }`
+  `
 }
 
 export default withRouter(SignupForm)

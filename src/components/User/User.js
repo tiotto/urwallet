@@ -19,15 +19,14 @@ const User = () => {
   )
 }
 
-const StyledUserIcon = styled(UserIcon)`
-`
+const StyledUserIcon = styled(UserIcon)``
 
 const S = {
   User: styled.div`
     display: none;
+    align-items: center;
     margin-bottom: 8px;
     color: #d1d4e6;
-    align-items: center;
 
     & svg {
       margin-left: 12px;
@@ -38,15 +37,14 @@ const S = {
     }
   `,
   Logout: styled.div`
-    text-decoration: underline;
     font-size: 12px;
     text-align: right;
+    text-decoration: underline;
   `,
-  Info: styled.div`
-  `,
+  Info: styled.div``,
   Email: styled.div`
-    font-size: 14px;
     margin-bottom: 4px;
+    font-size: 14px;
   `
 }
 

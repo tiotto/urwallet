@@ -73,12 +73,12 @@ const S = {
       &:last-child{
         margin-bottom: 28px;
       }
-  }
+    }
   `,
   Signup: styled.div`
+    display: block;
     margin-top: 22px;
     text-align: center;
-    display: block;
 
     a {
       color: #000;

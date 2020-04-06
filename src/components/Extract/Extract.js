@@ -52,8 +52,8 @@ const Extract = () => {
 
 const S = {
   Extract: styled.section`
-    background: #FFF;
     margin: auto;
+    background: #FFF;
 
     @media ${device.tablet} {
       width: 1200px;
@@ -61,9 +61,9 @@ const S = {
   `,
   Title: styled.div`
     margin-top: 22px;
-    font-weight: 600;
-    font-size: 18px;
     margin-bottom: 18px;
+    font-size: 18px;
+    font-weight: 600;
   `,
   Table: styled.table`
     text-align: left;
@@ -78,10 +78,10 @@ const S = {
   Body: styled.tbody``,
   Header: styled.thead``,
   Heading: styled.th`
-    background: #F3F5FF;
-    color: #707AAD;
-    font-weight: 600;
     padding: 12px 22px;
+    font-weight: 600;
+    color: #707AAD;
+    background: #F3F5FF;
   `,
   Row: styled.tr`
     height: 26px;
@@ -91,9 +91,9 @@ const S = {
     }
   `,
   Data: styled.td`
-    padding: 8px 22px;
     width: 120px;
     height: 46px;
+    padding: 8px 22px;
     vertical-align: middle;
   `
 }

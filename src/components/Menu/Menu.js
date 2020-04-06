@@ -34,8 +34,8 @@ const S = {
     padding: 2px 12px;
 
     & .selected {
-      text-decoration: underline;
       display: inline-block;
+      text-decoration: underline;
     }
   `
 }

@@ -18,15 +18,14 @@ Select.propTypes = {
 
 const S = {
   Select: styled.select`
-    border: 1px solid #E5EEF6;
-    background: #F3F5FF;
     width: 120px;
-    height: 28px;
-    font-weight: 600;
-    color: #707AAD;
-    font-size: 14px;
     height: 40px;
     padding: 0 12px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #707AAD;
+    background: #F3F5FF;
+    border: 1px solid #E5EEF6;
   `
 }
 

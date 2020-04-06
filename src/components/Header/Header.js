@@ -24,8 +24,8 @@ const Header = () =>
 
 const StyledLogo = styled(Logo)`
   height: 18px;
-  color: #FFF;
   margin-right: 14px;
+  color: #FFF;
 `
 
 const S = {
@@ -38,21 +38,21 @@ const S = {
   `,
   Wrapper: styled.div`
     align-items: center;
-    text-align: center;
-    margin: auto;
     justify-content: space-between;
     padding: 8px 16px;
+    margin: auto;
+    text-align: center;
 
     @media ${device.tablet} {
       display: flex;
-      padding: 4px 0;
       width: 1200px;
+      padding: 4px 0;
     }
   `,
   LogoMenu: styled.div`
-   a {
-    color: #d1d4e6;
-   }
+    a {
+      color: #d1d4e6;
+    }
   `
 }
 

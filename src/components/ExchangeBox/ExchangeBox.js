@@ -67,9 +67,8 @@ const ExchangeBox = () => {
 }
 const S = {
   ExchangeBox: styled.section`
-    margin: auto;
-    margin-top:26px;
     padding: 0 12px;
+    margin-top: 26px auto;
 
     @media ${device.tablet} {
       width: 1200px;

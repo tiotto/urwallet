@@ -15,17 +15,16 @@ const StyledLogo = styled(Logo)`
 
 const S = {
   Footer: styled.footer`
-    background: #403F4B;
-    color: #FFF;
-    padding: 16px;
-
-    width: 100%;
     position: absolute;
     bottom: 0;
+    width: 100%;
+    padding: 16px;
+    color: #FFF;
+    background: #403F4B;
   `,
   Text: styled.p`
-    text-align: center;
     color: #fff;
+    text-align: center;
   `
 }
 

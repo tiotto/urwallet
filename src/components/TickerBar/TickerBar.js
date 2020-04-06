@@ -23,8 +23,8 @@ const S = {
     text-align: left;
 
     @media ${device.tablet} {
-      padding: 8px 0px;
       width: 1200px;
+      padding: 8px 0;
     }
   `
 }
