@@ -3,7 +3,7 @@ import { endpoint } from './config'
 
 export const getBrita = async (date) => {
   return axios({
-    url: `${endpoint}@dataCotacao='${date}'&$format=json`,
+    url: `${endpoint}`,
     method: 'GET'
   })
 }

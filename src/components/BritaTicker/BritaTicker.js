@@ -17,7 +17,7 @@ const Brita = () => {
     async function fetchBrita () {
       const { data } = await getBrita(now)
 
-      const current = data.value[0].cotacaoCompra
+      const current = data.USD.bid
 
       global.localStorage.setItem('urw_current_brt', current)
       globalState.setBrita({ current })
