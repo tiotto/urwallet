@@ -7,11 +7,12 @@ export const initialState = {
     id: global.window ? global.window.localStorage.getItem('urw_userId') : '',
     email: global.window ? global.window.localStorage.getItem('urw_userEmail') : ''
   },
-  bitcoin: global.window ? global.window.localStorage.getItem('urw_current_btc') : '',
-  brita: global.window ? global.window.localStorage.getItem('urw_current_brt') : ''
+  bitcoin: { current: global.window ? global.window.localStorage.getItem('urw_current_btc') : '' },
+  brita: { current: global.window ? global.window.localStorage.getItem('urw_current_brt') : '' }
 }
 
-const reducer = (state, action) => { console.log('state', state)
+const reducer = (state, action) => {
+  console.log('state', state)
   switch (action.type) {
     case SET_USERID:
       return {
