@@ -1,35 +1,54 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
+import { useGlobalState } from '../../context'
 import { device } from '../../theme/breakpoints'
+import { formatCurrency } from '../../utils/currencyFormatter'
+import api from '../../services/urwallet/api'
 
-const Extract = (/*{data, type, blockchain, quantia, saldo }*/) =>
-  <S.Extract>
-    <S.Title>Últimas transações:</S.Title>
+const Extract = () => {
+  const { user } = useGlobalState()
+  const [extract, setExtract] = useState([])
 
-    <S.Wrapper>
-      <S.Table>
-        <S.Header>
-          <S.Row>
-            <S.Heading>Data</S.Heading>
-            <S.Heading>Tipo</S.Heading>
-            <S.Heading>Blockchain</S.Heading>
-            <S.Heading>Quantia</S.Heading>
-            <S.Heading>Saldo</S.Heading>
-          </S.Row>
-        </S.Header>
-        <S.Body>
-          <S.Row>
-            <S.Data>2020-03-12 09:36:52</S.Data>
-            <S.Data>Compra</S.Data>
-            <S.Data>Bitcoin</S.Data>
-            <S.Data>1000</S.Data>
-            <S.Data>-37.908,00</S.Data>
-          </S.Row>
-        </S.Body>
-      </S.Table>
-    </S.Wrapper>
-  </S.Extract>
+  useEffect(() => {
+    async function fetchExtract () {
+      const response = await api.get(`/accounts/${user.id}/transactions`)
+
+      setExtract(response.data.transactions)
+    }
+    fetchExtract()
+  }, [])
+
+  return (
+    <S.Extract>
+      <S.Title>Suas Transações:</S.Title>
+      <S.Wrapper>
+        <S.Table>
+          <S.Header>
+            <S.Row>
+              <S.Heading>Data</S.Heading>
+              <S.Heading>Tipo</S.Heading>
+              <S.Heading>Blockchain</S.Heading>
+              <S.Heading>Quantia</S.Heading>
+              <S.Heading>Valor Unit.</S.Heading>
+            </S.Row>
+          </S.Header>
+          <S.Body>
+            {extract.map((transaction, index) =>
+              <S.Row key={index}>
+                <S.Data>{transaction.timestamp}</S.Data>
+                <S.Data>{transaction.type}</S.Data>
+                <S.Data>{transaction.blockchain}</S.Data>
+                <S.Data>{transaction.amount}</S.Data>
+                <S.Data>{formatCurrency(transaction.value, 'USD')}</S.Data>
+              </S.Row>
+            )}
+          </S.Body>
+        </S.Table>
+      </S.Wrapper>
+    </S.Extract>
+  )
+}
 
 const S = {
   Extract: styled.section`
@@ -41,6 +60,7 @@ const S = {
     }
   `,
   Title: styled.div`
+    margin-top: 22px;
     font-weight: 600;
     font-size: 18px;
     margin-bottom: 18px;
