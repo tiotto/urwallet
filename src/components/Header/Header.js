@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useLocation, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import Menu from '../Menu'
 import { ReactComponent as Logo } from '../../assets/logo.svg'
@@ -8,24 +8,19 @@ import { device } from '../../theme/breakpoints'
 import User from '../User'
 import Wallet from '../../components/Wallet'
 
-const Header = () => {
-  const location = useLocation()
-
-  return (
-    <S.Header>
-      <S.Wrapper>
-        <S.LogoMenu>
-          <Link to='/dashboard'>
-            <StyledLogo />
-          </Link>
-          <Menu />
-        </S.LogoMenu>
-        {location.pathname !== '/dashboard' ? <Wallet /> : null}
-        <User />
-      </S.Wrapper>
-    </S.Header>
-  )
-}
+const Header = () =>
+  <S.Header>
+    <S.Wrapper>
+      <S.LogoMenu>
+        <Link to='/dashboard'>
+          <StyledLogo />
+        </Link>
+        <Menu />
+      </S.LogoMenu>
+      <Wallet />
+      <User />
+    </S.Wrapper>
+  </S.Header>
 
 const StyledLogo = styled(Logo)`
   height: 18px;
