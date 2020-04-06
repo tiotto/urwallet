@@ -25,8 +25,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: #FFF;
     font-family: 'Source Sans Pro', sans-serif;
+    background: (--bg-primary);
   }
 
   ${Tokens}
