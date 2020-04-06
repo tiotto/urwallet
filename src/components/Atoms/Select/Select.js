@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 const Select = ({ children, ...props }) =>
   <S.Select {...props}>
@@ -7,6 +8,13 @@ const Select = ({ children, ...props }) =>
       <option value={child.props.value}>{child.props.children}</option>
     )}
   </S.Select>
+
+Select.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ])
+}
 
 const S = {
   Select: styled.select`

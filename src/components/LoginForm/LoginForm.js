@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Link, withRouter } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 import { useGlobalState } from '../../context'
 import { login } from '../../services/urwallet/auth'
@@ -55,6 +56,10 @@ const LoginForm = ({ history }) => {
       <S.Signup>Novo por aqui? <Link to='signup'>Crie uma nova conta</Link></S.Signup>
     </S.Login>
   )
+}
+
+LoginForm.propTypes = {
+  history: PropTypes.object
 }
 
 const S = {

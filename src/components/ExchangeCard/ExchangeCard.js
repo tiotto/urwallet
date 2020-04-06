@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 import { useGlobalState } from '../../context'
 import api from '../../services/urwallet/api'
@@ -35,6 +36,12 @@ const ExchangeCard = ({ blockchain, price, operation }) => {
       </S.Wrapper>
     </S.Card>
   )
+}
+
+ExchangeCard.propTypes = {
+  blockchain: PropTypes.string,
+  price: PropTypes.string,
+  operation: PropTypes.string
 }
 
 const S = {

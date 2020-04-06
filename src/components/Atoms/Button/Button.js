@@ -1,10 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 const Button = ({ type, text }) =>
   <S.Button className='button' type={type}>
     {text}
   </S.Button>
+
+Button.propTypes = {
+  type: PropTypes.string,
+  text: PropTypes.string
+}
 
 const S = {
   Button: styled.button`

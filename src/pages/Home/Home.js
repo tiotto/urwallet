@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 import styledPage from '../styledPage'
 import { ReactComponent as Logo } from '../../assets/logo.svg'
@@ -23,6 +24,13 @@ const Home = ({ children }) =>
       <MovingPattern />
     </S.Background>
   </S.Home>
+
+Home.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ])
+}
 
 const StyledLogo = styled(Logo)`
   height: 24px;

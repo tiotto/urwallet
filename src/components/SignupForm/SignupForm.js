@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { withRouter } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 import { useGlobalState } from '../../context'
 import Input from '../Atoms/Input'
@@ -55,6 +56,10 @@ const SignupForm = ({ history }) => {
       <Button text='Cadastrar' />
     </S.Signup>
   )
+}
+
+SignupForm.propTypes = {
+  history: PropTypes.object
 }
 
 const S = {
