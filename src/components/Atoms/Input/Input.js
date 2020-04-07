@@ -2,8 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { ReactComponent as ErrorIcon } from '../../../assets/error.svg'
-
 const Input = ({ className, warning, error, ...props }) =>
   <S.Field className='field' isErrored={error}>
     <S.Input
@@ -13,7 +11,7 @@ const Input = ({ className, warning, error, ...props }) =>
     />
     {error &&
       <>
-        <ErrorIcon className='input__error-icon' />
+        <span role='img'>🚫</span>
         <S.Error className='input__error'>{warning}</S.Error>
       </>}
   </S.Field>
