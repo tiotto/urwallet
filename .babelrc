@@ -1,4 +1,16 @@
 {
-  "presets": ["react-app"],
-  "plugins": ["inline-react-svg"]
+  "presets": [
+    "@babel/preset-env", "@babel/preset-react"
+  ],
+  "plugins": [
+    "inline-react-svg",
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "absoluteRuntime": false,
+        "corejs": 2,
+        "version": "^7.7.4"
+      }
+    ]
+  ]
 }
