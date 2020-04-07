@@ -3,7 +3,7 @@ import { render } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import { BrowserRouter } from 'react-router-dom'
 
-import Dashboard from '.'
+import Trade from '.'
 
 const renderWithRouter = children => render(
   <BrowserRouter>
@@ -11,10 +11,10 @@ const renderWithRouter = children => render(
   </BrowserRouter>
 )
 
-describe('Dashboard', () => {
-  it('should render dashboard', () => {
-    const { container } = renderWithRouter(<Dashboard />)
+describe('Trade', () => {
+  it('should render', () => {
+    const { container } = renderWithRouter(<Trade />)
 
-    expect(container).toBeVisible()
+    expect(container).toBeInTheDocument()
   })
 })
