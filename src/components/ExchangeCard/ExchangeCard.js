@@ -81,7 +81,7 @@ const S = {
     text-align: center;
     cursor: pointer;
     border: 2px solid #707AAD;
-    border-radius: (--shape-round);
+    border-radius: var(--shape-round);
   `,
   Wrapper: styled.div`
     display: flex;

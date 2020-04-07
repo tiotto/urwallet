@@ -10,7 +10,7 @@ const Tokens = css`
     --bg-primary: #FFF;
     --brand-primary: #317FF7;
     --border-primary: #E5EEF6;
-    --feedback-error: #d40d12;
+    --feedback-error: #D40D12;
     --feedback-success: #068320;
     --feedback-warning: #dc9a19;
     --font-size-body1: 16px;
@@ -20,8 +20,9 @@ const Tokens = css`
     --shape-rounded: 4px;
     --shape-round: 20px;
     --text-primary: #000;
-    --text-primary-light: var(--text-primary-light);
-    --text-secondary: #fff;
+    --text-primary-light: #D1D4E6;
+    --text-primary-dark: #707AAD;
+    --text-secondary: #FFF;
   }
 `
 

@@ -20,7 +20,7 @@ const S = {
     width: 100%;
     padding: 16px;
     color: var(--text-secondary);
-    background: (--base-secondary-dark);
+    background: var(--base-secondary-dark);
   `,
   Text: styled.p`
     color: var(--text-secondary);

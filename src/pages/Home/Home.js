@@ -70,7 +70,7 @@ const S = {
       width: 50%;
       height: 100vh;
       padding: 82px 92px;
-      background: (--bg-primary);
+      background: var(--bg-primary);
     }
   `,
   Logo: styled.div``,

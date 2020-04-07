@@ -20,7 +20,7 @@ const S = {
     color: var(--text-secondary);
     background: #317FF7;
     border: none;
-    border-radius: (--shape-round);
+    border-radius: var(--shape-round);
   `
 }
 
