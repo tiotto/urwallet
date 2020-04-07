@@ -3,14 +3,12 @@ import styled from 'styled-components'
 import { Link, withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
-import { useGlobalState } from '../../context'
 import { login } from '../../services/urwallet/auth'
 import Input from '../Atoms/Input'
 import Button from '../../components/Atoms/Button'
 import api from '../../services/urwallet/api'
 
 const LoginForm = ({ history }) => {
-  const globalState = useGlobalState()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -25,8 +23,6 @@ const LoginForm = ({ history }) => {
 
       global.localStorage.setItem('urw_userId', id)
       global.localStorage.setItem('urw_userEmail', email)
-
-      globalState.setUser({ id, email })
 
       history.push('/dashboard')
     } catch (err) {
@@ -52,7 +48,7 @@ const LoginForm = ({ history }) => {
           required
         />
       </S.Fields>
-      <Button text='Entrar' />
+      <Button text='Entrar' type='submit' />
       <S.Signup>Novo por aqui? <Link to='signup'>Crie uma nova conta</Link></S.Signup>
     </S.Login>
   )

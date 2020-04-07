@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import { withRouter } from 'react-router'
 
 import Menu from '../Menu'
 import { ReactComponent as Logo } from '../../assets/logo.svg'
@@ -30,7 +31,7 @@ const StyledLogo = styled(Logo)`
 
 const S = {
   Header: styled.header`
-    background: (--base-secondary-dark);
+    background: var(--base-secondary-dark);
 
     @media ${device.tablet} {
       height: 48px;
@@ -56,4 +57,4 @@ const S = {
   `
 }
 
-export default Header
+export default withRouter(Header)

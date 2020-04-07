@@ -1,32 +1,42 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { useGlobalState } from '../../context'
 import api from '../../services/urwallet/api'
 import { formatCurrency } from '../../utils/currencyFormatter'
 import { device } from '../../theme/breakpoints'
+import Dialog from '../Dialog'
 
-const ExchangeCard = ({ blockchain, price, operation }) => {
-  const { user, bitcoin, brita } = useGlobalState()
-  const currency = (blockchain === 'Bitcoin' ? bitcoin.current : brita.current)
+const ExchangeCard = ({ blockchain, price, operation, bitcoin, brita, userId, balance }) => {
+  const currency = (blockchain === 'Bitcoin' ? bitcoin : brita)
   const amount = price / currency
+  const [error, setError] = useState(false)
+  const [success, setSuccess] = useState(false)
+
+  console.log(userId)
 
   const handleClick = async e => {
-    try {
-      await api.post(`/accounts/${user.id}/transactions`, {
-        type: operation,
-        amount: amount,
-        blockchain: blockchain,
-        value: price
-      })
-    } catch (err) {
-      console.log(err, 'Tente novamente.')
+    if (parseInt(price) < balance.total) {
+      setSuccess(true)
+      try {
+        await api.post(`/accounts/${userId}/transactions`, {
+          type: operation,
+          amount: amount,
+          blockchain: blockchain,
+          value: price
+        })
+      } catch (err) {
+        console.log(err, 'Tente novamente.')
+      }
+    } else {
+      setError(true)
     }
   }
 
   return (
     <S.Card>
+      {error && <Dialog type='error' text='Saldo Insuficiente.' />}
+      {success && <Dialog type='success' text='Troca efetuada!' />}
       <S.Currency>{blockchain}</S.Currency>
       <S.Amount>{blockchain === 'Bitcoin' ? amount : formatCurrency(amount, 'USD')} </S.Amount>
       por:
@@ -40,7 +50,20 @@ const ExchangeCard = ({ blockchain, price, operation }) => {
 
 ExchangeCard.propTypes = {
   blockchain: PropTypes.string,
-  price: PropTypes.string,
+  userId: PropTypes.string,
+  balance: PropTypes.object,
+  price: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]),
+  bitcoin: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]),
+  brita: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]),
   operation: PropTypes.string
 }
 

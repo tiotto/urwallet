@@ -1,22 +1,27 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
+import withData from '../../pages/HOC/withData'
 import { device } from '../../theme/breakpoints'
-import { useGlobalState } from '../../context'
 import { ReactComponent as UserIcon } from '../../assets/user.svg'
 
-const User = () => {
-  const { user } = useGlobalState()
+const User = ({ userEmail }) =>
+  <S.User>
+    <S.Info>
+      <S.Email>{userEmail}</S.Email>
+      <S.Logout>
+        <Link to='/'>
+            Logout
+        </Link>
+      </S.Logout>
+    </S.Info>
+    <StyledUserIcon />
+  </S.User>
 
-  return (
-    <S.User>
-      <S.Info>
-        <S.Email>{user.email}</S.Email>
-        <S.Logout>Logout</S.Logout>
-      </S.Info>
-      <StyledUserIcon />
-    </S.User>
-  )
+User.propTypes = {
+  userEmail: PropTypes.string
 }
 
 const StyledUserIcon = styled(UserIcon)``
@@ -37,9 +42,13 @@ const S = {
     }
   `,
   Logout: styled.div`
-    font-size: 12px;
     text-align: right;
-    text-decoration: underline;
+
+    a {
+      font-size: 12px;
+      color: var(--text-primary-light);
+      text-decoration: underline;
+    }
   `,
   Info: styled.div``,
   Email: styled.div`
@@ -48,4 +57,4 @@ const S = {
   `
 }
 
-export default User
+export default (withData(User))

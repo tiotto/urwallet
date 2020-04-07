@@ -1,35 +1,22 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
-import { useGlobalState } from '../../context'
+import withData from '../../pages/HOC/withData'
 import { formatCurrency } from '../../utils/currencyFormatter'
-import api from '../../services/urwallet/api'
 
-const Wallet = () => {
-  const { user } = useGlobalState()
+const Wallet = ({ balance }) =>
+  <S.Wallet>
+    {formatCurrency(balance.total, 'BRL')} |
+    $ {formatCurrency(balance.brita, 'BRL')} |
+    ₿ {balance.bitcoin}
+  </S.Wallet>
 
-  const [real, setReal] = useState('')
-  const [brita, setBrita] = useState('')
-  const [bitcoin, setBitcoin] = useState('')
-
-  useEffect(() => {
-    async function fetchBalance () {
-      const response = await api.get(`/accounts/${user.id}/transactions`)
-
-      setReal(response.data.total)
-      setBrita(response.data.brita)
-      setBitcoin(response.data.bitcoin)
-    }
-    fetchBalance()
-  }, [])
-
-  return (
-    <S.Wallet>
-      {formatCurrency(real, 'BRL')} |
-      $ {formatCurrency(brita, 'BRL')} |
-      ₿ {bitcoin}
-    </S.Wallet>
-  )
+Wallet.propTypes = {
+  balance: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ])
 }
 
 const S = {
@@ -38,4 +25,4 @@ const S = {
   `
 }
 
-export default React.memo(Wallet)
+export default withData(Wallet)

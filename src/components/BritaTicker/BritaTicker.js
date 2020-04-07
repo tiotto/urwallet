@@ -1,34 +1,21 @@
 
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
-import { useGlobalState } from '../../context'
-import { getBrita } from '../../services/britaTicker'
+import withData from '../../pages/HOC/withData'
 import { formatCurrency } from '../../utils/currencyFormatter'
 
-const Brita = () => {
-  const [brita, setBrita] = useState('')
-  const globalState = useGlobalState()
+const BritaTicker = ({ brita }) =>
+  <S.Brita>
+    $ {formatCurrency(brita, 'BRL')}
+  </S.Brita>
 
-  useEffect(() => {
-    async function fetchBrita () {
-      const { data } = await getBrita()
-
-      const current = data.USD.bid
-
-      global.localStorage.setItem('urw_current_brt', current)
-      globalState.setBrita({ current })
-
-      setBrita(current)
-    }
-    fetchBrita()
-  }, [])
-
-  return (
-    <S.Brita>
-      $ {formatCurrency(brita, 'BRL')}
-    </S.Brita>
-  )
+BritaTicker.propTypes = {
+  brita: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ])
 }
 
 const S = {
@@ -37,4 +24,4 @@ const S = {
   `
 }
 
-export default Brita
+export default withData(BritaTicker)

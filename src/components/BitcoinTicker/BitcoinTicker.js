@@ -1,33 +1,20 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
-import { useGlobalState } from '../../context'
-import { getBitcoin } from '../../services/bitcoinTicker'
+import withData from '../../pages/HOC/withData'
 import { formatCurrency } from '../../utils/currencyFormatter'
 
-const Bitcoin = () => {
-  const globalState = useGlobalState()
-  const [bitcoin, setBitcoin] = useState('')
+const BitcoinTicker = ({ bitcoin }) =>
+  <S.Bitcoin>
+    BTC {formatCurrency(bitcoin, 'BRL')}
+  </S.Bitcoin>
 
-  useEffect(() => {
-    async function fetchData () {
-      const { data } = await getBitcoin()
-
-      const current = data.ticker.last
-
-      global.localStorage.setItem('urw_current_btc', current)
-      globalState.setBitcoin({ current })
-
-      setBitcoin(current)
-    }
-    fetchData()
-  }, [])
-
-  return (
-    <S.Bitcoin>
-      BTC {formatCurrency(bitcoin, 'BRL')}
-    </S.Bitcoin>
-  )
+BitcoinTicker.propTypes = {
+  bitcoin: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ])
 }
 
 const S = {
@@ -36,4 +23,4 @@ const S = {
   `
 }
 
-export default React.memo(Bitcoin)
+export default withData(BitcoinTicker)

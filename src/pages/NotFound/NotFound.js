@@ -11,12 +11,14 @@ const NotFound = () =>
     <TickerBar />
     <Header />
     <Footer />
-    <S.NotFound>404</S.NotFound>
+    <S.NotFound>404 - página não encontrada</S.NotFound>
   </>
 
 const S = {
   NotFound: styled.div`
-    background: red;
+    margin-top: 48px;
+    font-size: 24px;
+    text-align: center;
   `
 }
 

@@ -1,3 +1,3 @@
-import Bitcoin from './BitcoinTicker'
+import BitcoinTicker from './BitcoinTicker'
 
-export default Bitcoin
+export default BitcoinTicker
