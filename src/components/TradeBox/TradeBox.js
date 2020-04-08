@@ -37,8 +37,6 @@ const TradeBox = ({ userId, bitcoin, brita, balance }) => {
   }
 
   const handleTrade = async e => {
-    console.log('blockchain:', trade, 'amount:', amount, 'value', tradable)
-
     if (trade === 'Bitcoin' && balance.bitcoin <= amount) {
       setError(true)
     } else if (trade === 'Brita' && balance.brita <= amount) {
@@ -95,10 +93,7 @@ TradeBox.propTypes = {
     PropTypes.string,
     PropTypes.number
   ]),
-  balance: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number
-  ])
+  balance: PropTypes.object
 }
 
 const S = {

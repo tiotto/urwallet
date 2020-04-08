@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-const Button = ({ type, text }) => console.log(type) ||
+const Button = ({ type, text }) =>
   <S.Button className='button' type={type} data-testid='button'>
     {text}
   </S.Button>

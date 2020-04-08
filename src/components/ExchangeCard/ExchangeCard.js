@@ -13,8 +13,6 @@ const ExchangeCard = ({ blockchain, price, operation, bitcoin, brita, userId, ba
   const [error, setError] = useState(false)
   const [success, setSuccess] = useState(false)
 
-  console.log(userId)
-
   const handleClick = async e => {
     if (parseInt(price) < balance.total) {
       setSuccess(true)
