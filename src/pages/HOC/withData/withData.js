@@ -17,7 +17,9 @@ const withData = (WrappedComponent) => {
     useEffect(() => {
       setUserId(global.localStorage.getItem('urw_userId'))
       setUserEmail(global.localStorage.getItem('urw_userEmail'))
+    }, [])
 
+    useEffect(() => {
       async function fetchBalance () {
         const response = await api.get(`/accounts/${(global.localStorage.getItem('urw_userId'))}`)
 
@@ -29,13 +31,20 @@ const withData = (WrappedComponent) => {
 
         setBalance(balance)
       }
+      fetchBalance()
+    })
 
+    useEffect(() => {
       async function fetchExtract () {
         const response = await api.get(`/accounts/${(global.localStorage.getItem('urw_userId'))}/transactions`)
 
         setExtract(response.data.transactions)
       }
 
+      fetchExtract()
+    }, [])
+
+    useEffect(() => {
       async function fetchBrita () {
         const { data } = await getBrita()
 
@@ -44,6 +53,10 @@ const withData = (WrappedComponent) => {
 
         setBrita(current)
       }
+      fetchBrita()
+    }, [])
+
+    useEffect(() => {
       async function fetchBitcoin () {
         const { data } = await getBitcoin()
 
@@ -52,10 +65,7 @@ const withData = (WrappedComponent) => {
 
         setBitcoin(current)
       }
-      fetchBrita()
       fetchBitcoin()
-      fetchExtract()
-      fetchBalance()
     }, [])
 
     return <WrappedComponent bitcoin={bitcoin} brita={brita} userId={userId} userEmail={userEmail} extract={extract} balance={balance} />
