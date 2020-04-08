@@ -12,10 +12,22 @@ const ExchangeCard = ({ blockchain, price, operation, bitcoin, brita, userId, ba
   const amount = price / currency
   const [error, setError] = useState(false)
   const [success, setSuccess] = useState(false)
+  const [disabled, setDisabled] = useState(false)
 
   const handleClick = async e => {
-    if (parseInt(price) < balance.total) {
+    setDisabled(true)
+
+    setTimeout(() => {
+      setDisabled(false)
+    }, 1500)
+
+    if ((operation === 'Compra' && (parseInt(price) > balance.total)) || (operation === 'Venda' && amount > balance.bitcoin) || (operation === 'Venda' && amount > balance.brita)) {
+      setError(true)
+      setSuccess(false)
+    } else {
+      setError(false)
       setSuccess(true)
+
       try {
         await api.post(`/accounts/${userId}/transactions`, {
           type: operation,
@@ -26,8 +38,6 @@ const ExchangeCard = ({ blockchain, price, operation, bitcoin, brita, userId, ba
       } catch (err) {
         console.log(err, 'Tente novamente.')
       }
-    } else {
-      setError(true)
     }
   }
 
@@ -40,7 +50,7 @@ const ExchangeCard = ({ blockchain, price, operation, bitcoin, brita, userId, ba
       por:
       <S.Wrapper>
         <S.Price>{formatCurrency(price, 'BRL')}</S.Price>
-        <S.Buy onClick={handleClick}>{operation}</S.Buy>
+        <S.Buy onClick={handleClick} disabled={disabled}>{operation}</S.Buy>
       </S.Wrapper>
     </S.Card>
   )
@@ -103,6 +113,14 @@ const S = {
     cursor: pointer;
     border: 2px solid #707AAD;
     border-radius: var(--shape-round);
+
+    &[disabled] {
+      color: #666;
+      pointer-events: none;
+      cursor: not-allowed;
+      background-color: #ccc;
+      border: 1px solid #999;
+    }
   `,
   Wrapper: styled.div`
     display: flex;
