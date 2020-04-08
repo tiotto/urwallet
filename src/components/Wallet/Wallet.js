@@ -13,10 +13,7 @@ const Wallet = ({ balance }) =>
   </S.Wallet>
 
 Wallet.propTypes = {
-  balance: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number
-  ])
+  balance: PropTypes.object
 }
 
 const S = {

@@ -36,7 +36,7 @@ const Extract = ({ extract }) =>
   </S.Extract>
 
 Extract.propTypes = {
-  extract: PropTypes.object
+  extract: PropTypes.array
 }
 
 const S = {

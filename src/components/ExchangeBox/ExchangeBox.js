@@ -95,10 +95,7 @@ ExchangeBox.propTypes = {
     PropTypes.string,
     PropTypes.number
   ]),
-  balance: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number
-  ]),
+  balance: PropTypes.object,
   userId: PropTypes.string
 }
 
