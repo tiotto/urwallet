@@ -8,7 +8,7 @@ import { formatCurrency } from '../../utils/currencyFormatter'
 const Wallet = ({ balance }) =>
   <S.Wallet>
     {!balance.total ? 'loading' : formatCurrency(balance.total, 'BRL')} |
-    {!balance.brita ? 'loading' : `$ ${formatCurrency(balance.brita, 'BRL')}`} |
+    {!balance.brita ? 'loading' : `${formatCurrency(balance.brita, 'USD')}`} |
     {!balance.brita ? 'loading' : `₿ ${balance.bitcoin}`}
   </S.Wallet>
 
